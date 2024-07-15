@@ -1,0 +1,7 @@
+C:\Users\Atents\Documents\siiiee\01_Console1\bin\Debug\01_Console.exe.config
+C:\Users\Atents\Documents\siiiee\01_Console1\bin\Debug\01_Console.exe
+C:\Users\Atents\Documents\siiiee\01_Console1\bin\Debug\01_Console.pdb
+C:\Users\Atents\Documents\siiiee\01_Console1\obj\Debug\01_Console.csproj.AssemblyReference.cache
+C:\Users\Atents\Documents\siiiee\01_Console1\obj\Debug\01_Console.csproj.CoreCompileInputs.cache
+C:\Users\Atents\Documents\siiiee\01_Console1\obj\Debug\01_Console.exe
+C:\Users\Atents\Documents\siiiee\01_Console1\obj\Debug\01_Console.pdb
