@@ -3,9 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace _01_Console
 {
+
+
+    // C#의 메모리 구조
+    // 구분 : Heap 메모리, Stack 메모리
+    // Heap : 운영체제가 관리하는 메모리, 크기가 매우 크다, 속도 느림 - class가 저장 레퍼런스타입
+    // Stack : 프로그램이 실행되었을 떄 이미 할당 받은 메모리 크기가 작다, 속도 빠름 struct(구조체)가 저장됨 벨리타입
+    // ArrayList 사용X
+    // 가비지컬렉터로 자동으로 메모리할당해제
+
+    // 얕은 복사는 주소만 넘겨주는것(주소만 가져오는 계념인듯)
+
+    // 참조타입(Reference type) : 얕은 복사 - 한쪽을 변경시키면 다른쪽도 같은 값이된다
+    // 값타입(Value type) : 깊은 복사 속도는 느리지만 실체가 복사한 만큼 생긴다
+
+    // static : 정적. 프로그램 실행전 결정되어 있는 것
+    // class, 함수
+
+    // dynamic : 동적. 프로그램 실행 중에 결정되는 것
+
     internal class Program
     {
         enum PointGrade
@@ -24,12 +44,106 @@ namespace _01_Console
         {
             Child, Elemetry, Middle , High, Adult
         }
-        void PrintMyData(string name, string s )
+        static void gogo1(int asd)//받을 정수형
         {
-
+            Console.WriteLine($"{asd}단 출력");
         }
+
+
+    
         static void Main(string[] args)
         {
+            //7/16----------------------------------------------
+
+
+            //c# 한정 internal 이란 것도 있음
+            // 접근제한자(Access Modifier)
+            // Class 선언 후 사용 시 메인에서 부름
+            // 같은 클래스를 불러 new(메모리할당)로 다른이름(객체)의 변수로 만들 수 있다
+            //클래스에는 상속 계념이 있다
+            //접근제한자 class 상속받을클래스이름 : 상속하는클래스이름
+            //상속받은 클래스를 자식, 상속하는 클래스를 부모
+            //public : 모두 사용가능한 
+            //private : 자신만 사용할 수 있는 (상속해도 사용 불가능)
+            //protected : 자신과 자신을 상속 받은 곳에서만 사용가능
+
+            //객체지향 : 여러사람이 같이 사용하기 좋은 방법
+            //오브젝트를 따로 제작 
+
+
+            // 반복문 
+            // while
+            /*int count = 0;
+            while (count < 3) // while : ()사이의 조건이 참이면 계속 반복해서 {}안의 내용을 실행
+            {
+                Console.WriteLine("aaa");
+                count++;
+            }
+
+            do
+            {
+                Console.WriteLine("aaa");
+                count++;
+            } while (count < 3); // {}사이의 코드를 먼저실행 한 뒤 ()조건이 참이면 반복
+
+            for(int i = 0; i < 3; i++) // for(초기화; 조건부;증감부)
+            {
+                Console.WriteLine("iii");
+            }
+            // 배열(Array) : 같은 종류의 데이터타입을 가지는 값들을 하나로 묶어놓은 것
+            int[] intArray;
+            intArray = new int[3]; // new : 할당
+            intArray[0] = 1;
+            intArray[1] = 2;
+            intArray[2] = 3;
+            
+            foreach(int i in intArray)//처리속도 빠름
+            {
+                Console.WriteLine($"{i}");
+            }*/
+
+            // 실습
+            // 구구단 출력
+            // 1. 숫자입력받기(숫자 변경 실패하면 다시 받기)
+            // 2. 입력 받은 숫자의 구구단 출력하기
+            // 3. 파라메터를 받은 숫자의 구구단 출력하는 함수 만들기
+
+            bool isSuccess = false; //불리얼 false
+            int result = 0;//int형변수 
+            int gogo = 1;
+            do//첫실행 
+            {
+                Console.WriteLine("숫자입력");
+                isSuccess = int.TryParse(Console.ReadLine(), out result);//정수형을 입력 받을경우 종료 정수가 아닐경우 반복
+
+            } while (!isSuccess);//정수형아닐시 반복
+            Console.WriteLine($"{result}단 출력");
+            for (gogo = 1; gogo < 10; gogo++)
+            {
+                Console.WriteLine($"{result} * {gogo} = {result * gogo}");
+            }
+
+            gogo1(result);//부를 함수를 기능 단위로 분리 할 것
+
+           /* int[] intArray2 = new int[10];
+
+            for (int dan = 2; dan < 10; dan++)
+            {
+                for (int i = 1; i < 10; i++)
+                {
+                    intArray2[i] = dan * i;
+                    
+                }
+                Console.WriteLine($"{dan} * {i} = {intArray2[dan]}");
+            }*/
+
+
+
+
+
+
+
+
             //7/15 -------------------------------
             //실습 2
             //1. 나이입력
@@ -37,7 +151,7 @@ namespace _01_Console
             //3. 13미만 "초등학생"
             //4. 16미만 " 중학생"
             //5. 19살 미만 "고등학생"
-            Console.Write("나이를 입력하세요 : ");
+            /*Console.Write("나이를 입력하세요 : ");
             int age = 0;
              string agestr = Console.ReadLine();//문자열 입력
             age = int.Parse(agestr);// 문자열 형변환
@@ -68,7 +182,7 @@ namespace _01_Console
             {
                 Console.WriteLine("성인");
                 ageCategory = AgeCategory.Adult;
-            }
+            }*/
 
             //switch : () 사이에 있는 값에 따라 다른 코드를 수행하는 조건문
             /*switch(categoty)
@@ -80,7 +194,7 @@ namespace _01_Console
                 case 4: Console.WriteLine("5000원"); break;
             }*/
 
-            switch (ageCategory)
+            /*switch (ageCategory)
             {
                 case AgeCategory.Child:
                     break;
@@ -93,6 +207,29 @@ namespace _01_Console
 
                        
             }
+            Console.Write("입력창");
+            int input = 0;
+            Test testinpuT = Test.A;
+            if (int.TryParse(Console.ReadLine(), out input))
+            {
+                if (input == 0)
+                {
+                    Console.WriteLine(input);
+                    testinpuT = Test.A;
+                }
+                else
+                {
+                    Console.WriteLine(input);
+                    testinpuT = Test.B;
+                }
+            }
+            switch (testinpuT)
+            {
+                case Test.A:
+                    Console.WriteLine("A");
+                    break;
+                case Test.B: Console.WriteLine("B"); break;
+            }*/
             /*int point;
             if(int.TryParse(Console.ReadLine(), out point))//TryParse 는 bool타입 out는 마지막 값만 리턴
             {
@@ -106,7 +243,7 @@ namespace _01_Console
             //실습
             //1. 성적용 enum 만들기 (A,B,C,D,F)
             //2. 점수를 입력 받아서 90점 이상이면 A, 80이상이면 B, 70점 이상이면 C, 60점 이상이면, D, 60점 미만일경우 F
-            Console.WriteLine("점수 입력");
+            /*Console.WriteLine("점수 입력");
             int test = 0;
             PointGrade pointGrade = PointGrade.F;
             if (int.TryParse(Console.ReadLine(), out test))
@@ -150,7 +287,7 @@ namespace _01_Console
                     Console.WriteLine("F");
                     break;
 
-            }
+            }*/
 
 
 
@@ -179,8 +316,8 @@ namespace _01_Console
             //증감연산자 : ++, --, +=, -=, *=, /=
             //a += 10 = a = a + 10;
             //후위 전위 : q++, ++q 
-            
-            
+
+
 
 
             /*int age = 24;
