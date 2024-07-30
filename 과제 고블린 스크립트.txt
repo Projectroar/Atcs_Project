@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    public GameObject target;
+    public float speed = 0.1f;
+    public GameObject attck;
+
+    
+    
+    private void Start()
+    {
+        
+    }
+
+    private void Update() 
+    {
+        if(target == null)
+        {
+            Debug.Log("목표 설정 안됨");
+            return;
+        }
+        Vector3 dir = target.transform.position - transform.position;
+        
+            transform.Translate(dir.normalized * speed * Time.deltaTime);
+        
+
+        
+
+        if(Vector3.Distance(transform.position, target.transform.position) < 0.1f)
+        {
+            Debug.Log("목표도달");
+            speed =0;
+            // 애니메이션 실행
+        }
+    }
+
+    
+
+    
+
+}
